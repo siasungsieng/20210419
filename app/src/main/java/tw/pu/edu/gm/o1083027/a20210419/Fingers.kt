@@ -18,6 +18,8 @@ class Fingers(context: Context): View(context),ScaleGestureDetector.OnScaleGestu
     lateinit var bitmap: Bitmap
     lateinit var sg: ScaleGestureDetector
     var factor: Float = 1.0f
+    val path = Path()
+    var p = Paint()
 
 
     init {
@@ -45,7 +47,17 @@ class Fingers(context: Context): View(context),ScaleGestureDetector.OnScaleGestu
             var DestRect:Rect = Rect(200, 300,w+200, h+300
                 ) //原圖較大，縮成1/4顯示
             canvas.drawBitmap(bitmap, SrcRect, DestRect, paint)
+
         }
+
+        path.moveTo(10f, 330f)
+        path.lineTo(70f, 330f)
+        path.lineTo(40f, 100f)
+        path.close()
+        canvas.drawPath(path, paint)
+
+        canvas.drawRect(60f, 60f, 80f, 80f, p);// 正方形
+        canvas.drawCircle(120f, 20f, 20f, p);
     }
     override fun onTouchEvent(event: MotionEvent): Boolean{
         //xPos = event.getX()
