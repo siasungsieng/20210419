@@ -20,6 +20,7 @@ class Fingers(context: Context): View(context),ScaleGestureDetector.OnScaleGestu
     var factor: Float = 1.0f
 
 
+
     init {
         rainbow = context.getResources().getIntArray(R.array.rainbow)
         bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.robot)
